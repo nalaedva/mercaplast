@@ -1,6 +1,7 @@
-import NavBar from './components/NavBar/NavBar'
-import ProductCard from './components/Card/ProductCard'
-import Chips from './components/Products/Chips'
+import NavBar from './components/General/NavBar/NavBar'
+import Chips from './components/General/Products/Chips'
+import FeaturedProducts from './components/General/Products/FeaturedProducts'
+
 
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
         <>
         <NavBar />
         <Chips />
-        <ProductCard />
+        <FeaturedProducts />
         </>
         
     );

@@ -1,5 +1,7 @@
-import { Grid,  Tabs, Tab, Box } from '@mui/material';
+import { Grid,  Tabs, Tab, Box, useMediaQuery } from '@mui/material';
 import { useState } from 'react';
+import DrawerComp from '../NavBar/DrawerComp';
+import { useTheme } from '@mui/material';
 
 
 
@@ -10,11 +12,19 @@ const Chips = () => {
     setValue(newValue);
   };
 
-  
+  const theme = useTheme();
+  console.log(theme);
+  const isMatch = useMediaQuery(theme.breakpoints.down('sm'));
+  console.log(isMatch);
 
   return (  
   <>
-     <Box sx={{ width: '100%', borderBottom: 1, borderColor: 'divider'}}>    
+    
+     <Box sx={{ width: '100%', borderBottom: 1, borderColor: 'divider'}}> 
+    
+        { isMatch ? <>
+          <DrawerComp />   
+        </> : 
         <Grid  container
                spacing={0}
                direction="column"
@@ -35,6 +45,7 @@ const Chips = () => {
             </Tabs>
           </Grid>
         </Grid>
+        }
         </Box>
   </>
   );
