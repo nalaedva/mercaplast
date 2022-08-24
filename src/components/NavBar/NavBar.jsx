@@ -1,16 +1,17 @@
-import { AppBar, Grid, Toolbar,  Typography, Tabs, Tab, Button, Box} from '@mui/material';
+import { AppBar, Grid, Toolbar, Button, Box} from '@mui/material';
 import logo from "../../assets/images/logo.png"
 import SearchIcon from '@mui/icons-material/Search';
+import DrawerComp from './DrawerComp';
 
 
 
 const NavBar = () => {
 
-  
+
   return (  
 
-        <AppBar  sx={{ background: 'rgba(0,0,58)' }}>
-          <Toolbar>
+        <AppBar sx={{position:"sticky", color:'inherit'}}>
+          <Toolbar sx={{ background: 'rgba(0,0,58)' }}>
             <Grid sx={{ placeItems: "center" }} container>
               <Grid item xs={3}>
                 <Toolbar>
@@ -18,14 +19,15 @@ const NavBar = () => {
                 </Toolbar>
               </Grid>
 
-              <Grid item xs={4} display="flex"
-                    justifyContent="center"
-                    alignItems="center">      
-                <Tab label="Buscar" />
-                <SearchIcon />
+              <Grid item xs={6} display="flex"
+                    alignItems="center"
+                    >   
+                    <Button sx={{ color: "black", background: 'white', width: 500 }} variant="string"> 
+                    <SearchIcon />Buscar
+                    </Button>   
               </Grid>
 
-              <Grid item xs={2} />
+             
               
               <Grid item xs={3}>
                 <Box display="flex">
@@ -34,26 +36,6 @@ const NavBar = () => {
                 </Box>
               </Grid>
 
-            </Grid>
-          </Toolbar>
-
-          <Toolbar>
-            <Grid  container
-                   spacing={0}
-                   direction="column"
-                   alignItems="center"
-                   justifyContent="center"
-                  >
-            <Grid item xs={12}>
-                <Tabs  textColor="inherit">
-                  <Tab label="Aseo" />
-                  <Tab label="Bazar" />
-                  <Tab label="Hogar" />
-                  <Tab label="Libreria" />
-                  <Tab label="Regaleria" />
-                  <Tab label="Ofertas" />
-                </Tabs>
-              </Grid>
             </Grid>
           </Toolbar>
         </AppBar>
