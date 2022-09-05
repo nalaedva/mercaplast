@@ -4,10 +4,19 @@ import SearchIcon from '@mui/icons-material/Search';
 import DrawerComp from './DrawerComp';
 import WidgetCart from '../WidgetCart/WidgetCart'
 
+import {useState} from 'react';
 
 
-const NavBar = () => {
 
+const NavBar = ({action}) => {
+ 
+  const [showWidgetCart, setShowWidgetCart] = useState(false);
+
+ 
+  const openWidgetCart = () => {
+    setShowWidgetCart(!showWidgetCart);
+  }
+ 
 
   return (  
 
@@ -31,15 +40,21 @@ const NavBar = () => {
              
               
               <Grid item xs={3}>
-                <Box display="flex">
+                <Box display="flex" >
                   <Button sx={{ marginLeft: "auto", color: "black", background: 'white' }} variant="contained">Login</Button>
-                  <Button sx={{ marginLeft: 1 , color: "black", background: 'white'}} variant="contained">Items
+                  
+                  <Button sx={{ marginLeft: 1 , color: "black", background: 'white'}} variant="contained"
+
+                  // action={openWidgetCart}
+                  onClick={openWidgetCart}
+                  >Items
                   <span>(0)</span>
                   </Button>
                 </Box>
               </Grid>
 
-              <WidgetCart />
+              <WidgetCart show={showWidgetCart} />
+              
             </Grid>
           </Toolbar>
         </AppBar>

@@ -3,9 +3,25 @@
     width: 30%;
     position: fixed;
     right: 0;
-    top: 0;
+    /* left: 0; */
+    top: 55px;
     background: rgba(255, 255, 250.2);
     z-index: 2;
     box-shadow: -0.3rem 0 0.3rem rgba(0, 0, 0, 0.2);
+   
+  }
+
+  /* .buttonClose {
+    position: fixed;
+    right: 3px;
+    top: 3px;
+    z-index: 2;
+  } */
+
+  .close  {
     display: none;
+  }
+
+  .open {
+    display: block;
   }

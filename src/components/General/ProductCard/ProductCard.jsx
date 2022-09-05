@@ -1,9 +1,7 @@
 import './ProductCard.css';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { Button,  CardActions } from '@mui/material';
+import ItemCount from '../ItemCount/ItemCount';
+
 
 const ProductCard = ({titulo, precio}) => {
     return (
@@ -12,11 +10,15 @@ const ProductCard = ({titulo, precio}) => {
             <div>
                 <h3>{titulo}</h3>
                 <p>${precio}</p>
-            </div>
+             </div>
 
-            <CardActions>
-                <Button size="small" color="primary">
-                Comprar
+             <CardActions sx={{ justifyContent: "center" }}>
+                <ItemCount />
+             </CardActions>
+
+            <CardActions  sx={{ justifyContent: "center" }}>
+                <Button variant="contained" size="small" color="primary" style={{textTransform: 'none'}}>
+                    Agregar al carrito
                 </Button>
             </CardActions>
 
