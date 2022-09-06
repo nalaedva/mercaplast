@@ -6,7 +6,7 @@ import ItemCount from '../ItemCount/ItemCount';
 const ProductCard = ({titulo, precio}) => {
     return (
         <article className="productCard">
-            <img src="https://dlucas.com.pe/wp-content/uploads/2021/03/papel-aluminio-5-mts.jpg"  alt="Mi producto de prueba"/>
+            <img src="https://thouy.es/2678-medium_default/rollo-papel-de-aluminio-alimentario-030x200-m.jpg"  alt="Mi producto de prueba"/>
             <div>
                 <h3>{titulo}</h3>
                 <p>${precio}</p>
