@@ -23,7 +23,7 @@ const ItemCount = () => {
     const qty = 5;
 
     return (  
-    <ButtonGroup alignItems="center" size="small" aria-label="small outlined button group">
+    <ButtonGroup size="small" aria-label="small outlined button group">
         <Button onClick={increase}>+</Button>
         {/* <input type="text" value={counter} readOnly/> */}
         <Button disabled> {counter} </Button>

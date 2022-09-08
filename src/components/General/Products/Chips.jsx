@@ -13,9 +13,34 @@ const Chips = () => {
   };
 
   const theme = useTheme();
-  console.log(theme);
+  // console.log(theme);
   const isMatch = useMediaQuery(theme.breakpoints.down('sm'));
-  console.log(isMatch);
+  // console.log(isMatch);
+
+  const menuItems = [
+    {
+      texto: 'Aseo',
+    },
+    {
+      texto: 'Bazar',
+    },
+    {
+      texto: 'Hogar',
+    },
+    {
+      texto: 'Libreria',
+    },
+    {
+      texto: 'Regaleria',
+    },
+    {
+      texto: 'Ofertas',
+    }
+    ,
+    {
+      texto: 'O',
+    }
+  ]
 
   return (  
   <>
@@ -36,12 +61,18 @@ const Chips = () => {
                   textColor="inherit" 
                   value={value} 
                   onChange={handleChange}>
-              <Tab value="one" label="Aseo" />
+              
+              {
+              menuItems.map((section, index) => <Tab key={index} value="one" label={section.texto} />) 
+              }
+              
+              {/* <Tab value="one" label="Aseo" />
               <Tab value="two" label="Bazar" />
               <Tab value="three" label="Hogar" />
               <Tab value="four" label="Libreria" />
               <Tab value="five" label="Regaleria" />
               <Tab value="six" label="Ofertas" />
+               */}
             </Tabs>
           </Grid>
         </Grid>
