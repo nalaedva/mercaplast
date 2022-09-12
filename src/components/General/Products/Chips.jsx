@@ -36,10 +36,6 @@ const Chips = () => {
     {
       texto: 'Ofertas',
     }
-    ,
-    {
-      texto: 'O',
-    }
   ]
 
   return (  

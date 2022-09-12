@@ -20,7 +20,8 @@ const NavBar = ({action}) => {
 
   return (  
 
-        <AppBar sx={{position:"sticky", color:'inherit'}}>
+        <AppBar sx={{position:"sticky", color:'inherit'
+        }}>
           <Toolbar sx={{ background: 'rgba(0,0,58)' }}>
             <Grid sx={{ placeItems: "center" }} container>
               <Grid item xs={3}>

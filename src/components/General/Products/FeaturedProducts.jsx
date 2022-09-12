@@ -70,8 +70,8 @@ const FeaturedProducts = () => {
           {
             items.map(item => (
             
-            <Grid item xs={12} sm={4} md={3}>
-              <Card key={item.id} sx={{ maxWidth: 250, 
+            <Grid key={item.id} item xs={12} sm={4} md={3}>
+              <Card  sx={{ maxWidth: 250, 
                   p: 1,
                   m: 2 }}>
                 <ProductCard titulo={item.title} precio={item.price}/>
