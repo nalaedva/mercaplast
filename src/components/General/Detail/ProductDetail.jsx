@@ -1,6 +1,8 @@
 import { Card, CardMedia, CardActions, Box, Typography, Rating, ButtonGroup, Button } from '@mui/material';
 
-const ProductDetail = () => {
+const ProductDetail = ({product}) => {
+    console.log(product);
+
     return ( 
         <>
         <Card
@@ -19,7 +21,7 @@ const ProductDetail = () => {
             width="300"
             height="300"
             alt="Product"
-            src="https://via.placeholder.com/300"
+            src={product.foto}
             sx={{
               borderRadius: 0.5,
               width: { xs: '100%', sm: 300 },
@@ -31,13 +33,13 @@ const ProductDetail = () => {
                 sx={{  ml: 2 }}
             >
                 <Typography  fontWeight="bold">
-                    Nombre Producto
+                    {product.nombre}
                 </Typography>
 
                 <Rating />
 
                 <Typography variant="body2" color="text.secondary">
-                    $ precio
+                    $ {product.precio}
                 </Typography>
 
                 <Box
@@ -46,7 +48,7 @@ const ProductDetail = () => {
                         }}
                 >
                     <Typography variant="body2">
-                        Descripcion del producto
+                        {product.descripcion}
                     </Typography>
                 </Box>
 
