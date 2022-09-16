@@ -32,6 +32,7 @@ const ProductDetail = ({product}) => {
             <Box
                 sx={{  ml: 2 }}
             >
+                <Typography>El id de este producto es{product.id}</Typography>
                 <Typography  fontWeight="bold">
                     {product.nombre}
                 </Typography>

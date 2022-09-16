@@ -19,7 +19,8 @@ const NavBar = ({action}) => {
  
 
   return (  
-
+    <>
+      <Box >
         <AppBar sx={{position:"sticky", color:'inherit'
         }}>
           <Toolbar sx={{ background: 'rgba(0,0,58)' }}>
@@ -59,7 +60,8 @@ const NavBar = ({action}) => {
             </Grid>
           </Toolbar>
         </AppBar>
-      
+        </Box>
+        </>
     );
 }
  

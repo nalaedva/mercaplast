@@ -1,29 +1,37 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+// import axios from 'axios';
 
 // LISTA STARWARS
 const Category = () => {
     
-    const [people, setPeople] = useState([]);
+    // const [people, setPeople] = useState([]);
 
-    const getPeople = async () => {
-        try {
-            let response = await axios ('https://swapi.dev/api/people/');
+    // const getPeople = async () => {
+    //     try {
+    //         let response = await axios ('https://swapi.dev/api/people/');
 
-            setPeople(response.data.results);
-        } catch(err) {
-            console.log(err);
-        }
-    }
+    //         setPeople(response.data.results);
+    //     } catch(err) {
+    //         console.log(err);
+    //     }
+    // }
 
-    useEffect(() => {
-        getPeople();
-    },[])
+    // useEffect(() => {
+    //     getPeople();
+    // },[])
     
+    const {category_name} = useParams();
+    
+    useEffect (() => {
+        console.log(category_name);
+    },[category_name])
+
+ 
     return (  
         <>
-        <h1>Star Wars Info</h1>
-        {
+        <h1>{category_name}</h1>
+        {/* {
             people.length ?
             people.map(person => (
                 <article key={person.created}>
@@ -32,7 +40,7 @@ const Category = () => {
                 </article>
             )) :
             <p>Cargando personajes...</p>
-        }
+        } */}
         </>
     );
 }

@@ -1,6 +1,7 @@
 import './ProductCard.css';
 import { Button,  CardActions } from '@mui/material';
 import ItemCount from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
 
 
 const ProductCard = ({titulo, precio}) => {
@@ -20,6 +21,8 @@ const ProductCard = ({titulo, precio}) => {
                 <Button variant="contained" size="small" color="primary" style={{textTransform: 'none'}}>
                     Agregar al carrito
                 </Button>
+                <Link to="/detail">
+                Detalles</Link>
             </CardActions>
 
         </article>

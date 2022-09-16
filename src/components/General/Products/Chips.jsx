@@ -2,10 +2,11 @@ import { Grid,  Tabs, Tab, Box, useMediaQuery } from '@mui/material';
 import { useState } from 'react';
 import DrawerComp from '../NavBar/DrawerComp';
 import { useTheme } from '@mui/material';
+import axios from 'axios';
 
 
 
-const Chips = () => {
+const Chips = ({action, url= "#"}) => {
 
   const [value, setValue] = useState('one');
   const handleChange = (event, newValue) => {
@@ -20,23 +21,31 @@ const Chips = () => {
   const menuItems = [
     {
       texto: 'Aseo',
+      value: '0',
+      ruta: '/category/aseo',
     },
     {
       texto: 'Bazar',
+      ruta: '/category/bazar',
     },
     {
       texto: 'Hogar',
+      ruta: '/category/hogar',
     },
     {
       texto: 'Libreria',
+      ruta: '/category/libreria',
     },
     {
       texto: 'Regaleria',
+      ruta: '/category/regaleria',
     },
     {
       texto: 'Ofertas',
+      ruta: '/category/ofertas',
     }
   ]
+
 
   return (  
   <>
@@ -59,7 +68,9 @@ const Chips = () => {
                   onChange={handleChange}>
               
               {
-              menuItems.map((section, index) => <Tab key={index} value="one" label={section.texto} />) 
+              menuItems.map((section, index) => 
+              <Tab key={index} value={section.ruta} label={section.texto} 
+              href={section.ruta} />) 
               }
               
               {/* <Tab value="one" label="Aseo" />
