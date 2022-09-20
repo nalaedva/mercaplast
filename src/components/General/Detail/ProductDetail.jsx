@@ -1,7 +1,34 @@
 import { Card, CardMedia, CardActions, Box, Typography, Rating, ButtonGroup, Button } from '@mui/material';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-const ProductDetail = ({product}) => {
-    console.log(product);
+
+const ProductDetail = ({productName}) => {
+    console.log(productName);
+
+    const [Product, setProduct] = useState([]);
+
+     const getProduct = async () => {
+         try {
+             let response = await axios.post('https://app-pos.azurewebsites.net/Services/Merchandise/Product/GetListOfProducts', {
+                "Take": 1,
+                "ContainsText": productName,
+                "CompanyId": 2,
+                "Skip": 0
+            });
+
+            console.log(response);
+
+            setProduct(response.data.Entities[0]);
+         } catch(err) {
+             console.log(err);
+         }
+     }
+
+     useEffect(() => {
+         getProduct();
+     },[])
+
 
     return ( 
         <>
@@ -21,7 +48,7 @@ const ProductDetail = ({product}) => {
             width="300"
             height="300"
             alt="Product"
-            src={product.foto}
+            src="https://www.desechablesmonterrey.com/wp-content/uploads/2014/11/PACTIVM51-0032.jpg"
             sx={{
               borderRadius: 0.5,
               width: { xs: '100%', sm: 300 },
@@ -32,15 +59,15 @@ const ProductDetail = ({product}) => {
             <Box
                 sx={{  ml: 2 }}
             >
-                <Typography>El id de este producto es{product.id}</Typography>
+                <Typography>El id de este producto es{Product.Id}</Typography>
                 <Typography  fontWeight="bold">
-                    {product.nombre}
+                    {Product.Name}
                 </Typography>
 
                 <Rating />
 
                 <Typography variant="body2" color="text.secondary">
-                    $ {product.precio}
+                    $ {Product.SalesPrice}
                 </Typography>
 
                 <Box
@@ -49,7 +76,7 @@ const ProductDetail = ({product}) => {
                         }}
                 >
                     <Typography variant="body2">
-                        {product.descripcion}
+                        {Product.Description}
                     </Typography>
                 </Box>
 

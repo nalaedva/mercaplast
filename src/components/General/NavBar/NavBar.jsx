@@ -1,4 +1,4 @@
-import { AppBar, Grid, Toolbar, Button, Box} from '@mui/material';
+import { AppBar, Grid, Toolbar, Button, Box, Link} from '@mui/material';
 import logo from "../../../assets/images/logo.png"
 import SearchIcon from '@mui/icons-material/Search';
 import DrawerComp from './DrawerComp';
@@ -19,7 +19,7 @@ const NavBar = ({action}) => {
  
 
   return (  
-    <>
+    <> 
       <Box >
         <AppBar sx={{position:"sticky", color:'inherit'
         }}>
@@ -27,7 +27,12 @@ const NavBar = ({action}) => {
             <Grid sx={{ placeItems: "center" }} container>
               <Grid item xs={3}>
                 <Toolbar>
-                  <img src={logo} alt="logo" />
+                  <Link href='/'>
+                    <Box>
+                    <img src={logo} alt="logo" />
+                    </Box>
+                  </Link>
+                  
                 </Toolbar>
               </Grid>
 

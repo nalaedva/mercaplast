@@ -19,7 +19,7 @@ function App() {
                     <Route path="/category/:category_name" 
                     element={<Category />} 
                     />
-                    <Route path="/detail/:id" element={<ItemContainer />} />
+                    <Route path="/detail/:productId" element={<ItemContainer />} />
                     <Route path="*" element={<Error404 />} />
                 </Routes>
         </BrowserRouter>

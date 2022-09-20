@@ -3,52 +3,39 @@ import Typography from '@mui/material/Typography';
 import { Grid, CircularProgress, Box } from '@mui/material';
 import ProductCard from '../ProductCard/ProductCard';
 import './FeaturedProducts.css'
+import axios from 'axios';
 
 import { useState, useEffect } from 'react';
 
 
 const FeaturedProducts = () => {
 
-  const [items, setItems] = useState([])
-  //Array de productos
-  const products = [
-    {
-      id: 1,
-      title: 'Rollo Aluminio 7mts',
-      price: 2200, 
-    },
-    {
-      id: 2,
-      title: 'Aceite Mineral 1lt',
-      price: 10200, 
-    },
-    {
-      id: 3,
-      title: 'Balde 10lts',
-      price: 5200, 
-    },
-    {
-      id: 4,
-      title: 'Bolsa transparente',
-      price: 6800, 
-    }
-  ]  
+  const [listProducts, setListProducts] = useState([]);
 
-  const getProducts = new Promise((resolve,reject) => {
-    setTimeout(() => {
-      resolve(products);
-    },2000)
-  })
+  const getProducts = async () => {
+      try {
+          let response = await axios.post('https://app-pos.azurewebsites.net/Services/Merchandise/Product/GetListOfProducts', {
+             "Take": 4,
+             "CompanyId": 2,
+             "Skip": 0
+         });
+
+         console.log(response);
+
+         setListProducts(response.data.Entities);
+      } catch(err) {
+          console.log(err);
+      }
+  }
 
   useEffect(() => {
-    getProducts.then(rta => setItems(rta));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[]);
+      getProducts();
+  },[])
 
   
     return (  
       
-        items.length ?
+        listProducts.length ?
   
       <>
         <Typography 
@@ -68,13 +55,13 @@ const FeaturedProducts = () => {
 
         <Grid container>
           {
-            items.map(item => (
+            listProducts.map(item => (
             
             <Grid key={item.id} item xs={12} sm={4} md={3}>
               <Card  sx={{ maxWidth: 250, 
                   p: 1,
                   m: 2 }}>
-                <ProductCard titulo={item.title} precio={item.price}/>
+                <ProductCard product={item}/>
               </Card>
             </Grid> 
               ))

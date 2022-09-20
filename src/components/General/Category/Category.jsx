@@ -1,25 +1,47 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 
 // LISTA STARWARS
 const Category = () => {
     
-    // const [people, setPeople] = useState([]);
+    const [Product, setProducts] = useState([]);
 
-    // const getPeople = async () => {
-    //     try {
-    //         let response = await axios ('https://swapi.dev/api/people/');
+     const getProducts = async () => {
+         try {
+             let response = await axios.post('https://app-pos.azurewebsites.net/Services/Merchandise/Product/GetListOfProducts', {
+                "Take": 10,
+                "CompanyId": 2,
+                "Skip": 0
+            });
+
+            console.log(response);
+
+            setProducts(response.data.Entities);
+         } catch(err) {
+             console.log(err);
+         }
+     }
+
+     useEffect(() => {
+         getProducts();
+     },[])
+
+    //  const [people, setPeople] = useState([]);
+
+    //  const getPeople = async () => {
+    //      try {
+    //          let response = await axios ('https://swapi.dev/api/people/');
 
     //         setPeople(response.data.results);
-    //     } catch(err) {
-    //         console.log(err);
-    //     }
-    // }
+    //      } catch(err) {
+    //          console.log(err);
+    //      }
+    //  }
 
-    // useEffect(() => {
-    //     getPeople();
-    // },[])
+    //  useEffect(() => {
+    //      getPeople();
+    //  },[])
     
     const {category_name} = useParams();
     
@@ -41,6 +63,17 @@ const Category = () => {
             )) :
             <p>Cargando personajes...</p>
         } */}
+        {
+            Product.length ?
+            Product.map(product => (
+                <article key={product.Id}>
+                <h2>{product.Name}</h2>
+                <p>Detalles:{product.Description}</p>
+                <p>Precio $ {product.SalesPrice}</p>
+                </article>
+            )) :
+            <p>Cargando productos...</p>
+        }
         </>
     );
 }
