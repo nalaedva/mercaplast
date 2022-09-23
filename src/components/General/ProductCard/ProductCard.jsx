@@ -10,7 +10,7 @@ const ProductCard = ({product}) => {
             <img src="https://thouy.es/2678-medium_default/rollo-papel-de-aluminio-alimentario-030x200-m.jpg"  alt="Mi producto de prueba"/>
             <div>
                 <h3>{product.Name}</h3>
-                <p>${product.SalePrice}</p>
+                <p>${product.SalesPrice}</p>
              </div>
 
              <CardActions sx={{ justifyContent: "center" }}>

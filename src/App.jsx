@@ -5,6 +5,9 @@ import FeaturedProducts from './components/General/Products/FeaturedProducts'
 import ItemContainer from './components/General/Detail/ItemContainer'
 import Error404 from './components/General/Error404'
 import Category from './components/General/Category/Category'
+import FreeShipping from './components/General/FreeShipping'
+import Footer from './components/General/Footer/Footer'
+import Slider from './components/Home/Slider/Index'
 
 
 function App() {
@@ -12,6 +15,7 @@ function App() {
     return ( 
 
         <BrowserRouter>
+            <FreeShipping />
             <NavBar />
             <Chips />
                 <Routes>
@@ -22,6 +26,7 @@ function App() {
                     <Route path="/detail/:productId" element={<ItemContainer />} />
                     <Route path="*" element={<Error404 />} />
                 </Routes>
+            <Footer />
         </BrowserRouter>
         
     );
