@@ -7,7 +7,8 @@ import Error404 from './components/General/Error404'
 import Category from './components/General/Category/Category'
 import FreeShipping from './components/General/FreeShipping'
 import Footer from './components/General/Footer/Footer'
-import Slider from './components/Home/Slider/Index'
+import Carousel from './components/Home/Carousel/Carousel'
+import Newsletter from './components/Home/Newsletter/Newsletter'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <FreeShipping />
             <NavBar />
             <Chips />
+            <Carousel />
                 <Routes>
                     <Route exact path="/" element={<FeaturedProducts />} />
                     <Route path="/category/:category_name" 
@@ -26,6 +28,7 @@ function App() {
                     <Route path="/detail/:productId" element={<ItemContainer />} />
                     <Route path="*" element={<Error404 />} />
                 </Routes>
+                <Newsletter />
             <Footer />
         </BrowserRouter>
         

@@ -13,14 +13,14 @@ const ProductCard = ({product}) => {
                 <p>${product.SalesPrice}</p>
              </div>
 
-             <CardActions sx={{ justifyContent: "center" }}>
+             {/* <CardActions sx={{ justifyContent: "center" }}>
                 <ItemCount />
-             </CardActions>
+             </CardActions> */}
 
             <CardActions  sx={{ justifyContent: "center" }}>
-                <Button variant="contained" size="small" color="primary" style={{textTransform: 'none'}}>
+                {/* <Button variant="contained" size="small" color="primary" style={{textTransform: 'none'}}>
                     Agregar al carrito
-                </Button>
+                </Button> */}
                 <Link to={`/detail/${product.Name}`}>
                 Detalles</Link>
             </CardActions>

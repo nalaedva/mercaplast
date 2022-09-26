@@ -1,0 +1,22 @@
+[
+    {
+    "id": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0120/0809/5840/files/Banner-Home-Lodiser_1000x_crop_center.jpg?v=1658432720",
+    "title": "-- Imagen 1 --"
+    },
+    {
+    "id": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0120/0809/5840/files/Banner-Home-Rotiseria_1000x_crop_center.jpg?v=1658432889",
+    "title": "-- Imagen 2 --"
+    },
+    {
+    "id": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0120/0809/5840/files/Banner-Home-Lodiser_1000x_crop_center.jpg?v=1658432720",
+    "title": "-- Imagen 3 --"
+    },
+    {
+    "id": 4,
+    "image": "https://cdn.shopify.com/s/files/1/0120/0809/5840/files/Banner-Home-Rotiseria_1000x_crop_center.jpg?v=1658432889",
+    "title": "-- Imagen 4 --"
+    }
+]
