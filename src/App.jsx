@@ -9,6 +9,7 @@ import FreeShipping from './components/General/FreeShipping'
 import Footer from './components/General/Footer/Footer'
 import Carousel from './components/Home/Carousel/Carousel'
 import Newsletter from './components/Home/Newsletter/Newsletter'
+import ProductCategories from './components/Home/ProductCategories/ProductCategories'
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
                     <Route path="/detail/:productId" element={<ItemContainer />} />
                     <Route path="*" element={<Error404 />} />
                 </Routes>
+                <ProductCategories />
                 <Newsletter />
             <Footer />
         </BrowserRouter>
