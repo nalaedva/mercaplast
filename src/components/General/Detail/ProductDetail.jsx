@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
+
 const ProductDetail = ({productName}) => {
     console.log(productName);
 
@@ -29,6 +30,24 @@ const ProductDetail = ({productName}) => {
          getProduct();
      },[])
 
+     const [counter, setCounter] = useState (0);
+
+
+    //increase counter
+    const increase = () => {
+        setCounter(count => count + 1);
+    };
+ 
+    //decrease counter
+    const decrease = () => {
+        if (counter > 0) {
+          setCounter(count => count - 1);
+        }
+    };
+
+    const onAdd = (e) => {
+        console.log('Click')
+    };
 
     return ( 
         <>
@@ -87,9 +106,9 @@ const ProductDetail = ({productName}) => {
                         pt: 2
                         }}
                 >
-                    <Button>+</Button>
-                    <Button disabled> 1 </Button>
-                    <Button>-</Button>
+                    <Button onClick={decrease}>-</Button>
+                    <Button disabled> {counter} </Button>
+                    <Button onClick={increase}>+</Button>
                 </ButtonGroup>
                 
                 <CardActions  
@@ -99,7 +118,11 @@ const ProductDetail = ({productName}) => {
                         pl: 0,
                      }}
                 >
-                    <Button variant="contained" size="small" color="primary" style={{textTransform: 'none'}}>
+                    
+                    <Button variant="contained" size="small" color="primary" style={{textTransform: 'none'}}
+                    
+                    onClick={onAdd}
+                    >
                     Agregar al carrito
                     </Button>
                 </CardActions>
