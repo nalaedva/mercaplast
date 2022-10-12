@@ -1,9 +1,11 @@
-import './WidgetCart.css'
-
+import { useContext } from 'react';
+import './WidgetCart.css';
+import { Store } from '../../../store'
+ 
 
 
 const WidgetCart = ({show}) => {
-
+    const [data, setData] = useContext(Store);
 
    
     return (
@@ -21,7 +23,9 @@ const WidgetCart = ({show}) => {
         
                     </IconButton>
                 </div>    */}
-                <h5>Widget</h5>
+                {/* {
+                    data.items.map(item => <p>{item.title}</p>)
+                } */}
             </div>
         </>
     )

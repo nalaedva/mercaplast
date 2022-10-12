@@ -1,11 +1,12 @@
 import { Card, CardMedia, CardActions, Box, Typography, Rating, ButtonGroup, Button } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
+import {Store} from '../../../store'
 
 
-
-const ProductDetail = ({productName}) => {
-    console.log(productName);
+const ProductDetail = ({productName, item}) => {
+    const[data, setData] = useContext(Store);
+    const[qty, setQty] = useState(1);
 
     const [Product, setProduct] = useState([]);
 
@@ -30,24 +31,20 @@ const ProductDetail = ({productName}) => {
          getProduct();
      },[])
 
-     const [counter, setCounter] = useState (0);
+     const handleClickResta = () => {	
+        if(qty > 1) {	
+            setQty(qty - 1);	
+        }	
+    }	
 
-
-    //increase counter
-    const increase = () => {
-        setCounter(count => count + 1);
-    };
- 
-    //decrease counter
-    const decrease = () => {
-        if (counter > 0) {
-          setCounter(count => count - 1);
-        }
+    const onAdd = () => {
+        setData({
+            ...data, cantidad: data.cantidad + qty,
+            items: [...data.items, item],
+        });
     };
 
-    const onAdd = (e) => {
-        console.log('Click')
-    };
+    console.log(data);
 
     return ( 
         <>
@@ -106,9 +103,10 @@ const ProductDetail = ({productName}) => {
                         pt: 2
                         }}
                 >
-                    <Button onClick={decrease}>-</Button>
-                    <Button disabled> {counter} </Button>
-                    <Button onClick={increase}>+</Button>
+                    <Button disabled={qty === 1 ? 'disabled' : null } 	
+                        onClick={handleClickResta}>-</Button>
+                    <input type="text" value={qty} readOnly/>	
+                    <Button onClick={() => setQty(qty + 1)}>+</Button>
                 </ButtonGroup>
                 
                 <CardActions  

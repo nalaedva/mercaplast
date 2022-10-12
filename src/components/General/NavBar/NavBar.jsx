@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+
 import { AppBar, Grid, Toolbar, Button, Box, Link} from '@mui/material';
 import logo from "../../../assets/images/logo.png"
 import SearchIcon from '@mui/icons-material/Search';
@@ -5,11 +7,15 @@ import DrawerComp from './DrawerComp';
 import WidgetCart from '../WidgetCart/WidgetCart'
 
 import {useState} from 'react';
+import {Store} from '../../../store';
 
 
 
 const NavBar = ({action}) => {
  
+  const [data, setData] = useContext(Store);
+  console.log(data);
+
   const [showWidgetCart, setShowWidgetCart] = useState(false);
 
  
@@ -55,7 +61,7 @@ const NavBar = ({action}) => {
                   // action={openWidgetCart}
                   onClick={openWidgetCart}
                   >Items
-                  <span>(0)</span>
+                  <span>({data.cantidad})</span>
                   </Button>
                 </Box>
               </Grid>

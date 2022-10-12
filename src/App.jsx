@@ -1,18 +1,23 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import NavBar from './components/General/NavBar/NavBar'
-import Chips from './components/General/Products/Chips'
-import ItemContainer from './components/General/Detail/ItemContainer'
-import Error404 from './components/General/Error404'
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NavBar from './components/General/NavBar/NavBar';
+import Chips from './components/General/Products/Chips';
+import ItemContainer from './components/General/Detail/ItemContainer';
+import Error404 from './components/General/Error404';
 import Category from './components/General/Category/Category'
-import FreeShipping from './components/General/FreeShipping'
-import Footer from './components/General/Footer/Footer'
-import Cart from './components/Cart/index'
-import Home from './components/Home'
-
+import FreeShipping from './components/General/FreeShipping';
+import Footer from './components/General/Footer/Footer';
+import Cart from './components/Cart/index';
+import Home from './components/Home';
+import {Store} from './store';
+ 
 function App() {
-
+    const [data, setData] = useState({
+        items: [],
+        cantidad: 0,
+    })
     return ( 
-
+    <Store.Provider value={[data, setData]}>
         <BrowserRouter>
             <FreeShipping />
             <NavBar />
@@ -28,7 +33,7 @@ function App() {
                 </Routes>
             <Footer />
         </BrowserRouter>
-        
+    </Store.Provider>
     );
 }
 
